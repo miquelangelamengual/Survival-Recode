@@ -1,5 +1,6 @@
 package es.hulk.survival.utils;
 
+import dev.panda.chat.ChatUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.Color;
 import org.bukkit.Material;
@@ -42,7 +43,7 @@ public class ItemBuilder {
 
     public ItemBuilder name(String name) {
         if (name != null) {
-            name = Utils.color(name);
+            name = ChatUtil.translate(name);
             ItemMeta meta = this.itemStack.getItemMeta();
             meta.setDisplayName(name);
             this.itemStack.setItemMeta(meta);
@@ -53,7 +54,7 @@ public class ItemBuilder {
     public ItemBuilder lore(List<String> lore) {
         if (lore != null) {
             ItemMeta meta = this.itemStack.getItemMeta();
-            meta.setLore(Utils.translate(lore));
+            meta.setLore(ChatUtil.translate(lore));
             this.itemStack.setItemMeta(meta);
         }
         return this;
@@ -62,7 +63,7 @@ public class ItemBuilder {
     public ItemBuilder lore(String... lore) {
         if (lore != null) {
             ItemMeta meta = this.itemStack.getItemMeta();
-            meta.setLore(Utils.translate(Arrays.asList(lore)));
+            meta.setLore(ChatUtil.translate(Arrays.asList(lore)));
             this.itemStack.setItemMeta(meta);
         }
         return this;

@@ -1,7 +1,7 @@
 package es.hulk.survival.utils.menu.pagination;
 
+import dev.panda.chat.ChatUtil;
 import es.hulk.survival.utils.ItemBuilder;
-import es.hulk.survival.utils.Utils;
 import es.hulk.survival.utils.menu.Button;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -17,9 +17,9 @@ public class JumpToPageButton extends Button
     @Override
     public ItemStack getButtonItem(final Player player) {
         ItemBuilder itemBuilder = new ItemBuilder(this.current ? Material.ENCHANTED_BOOK : Material.BOOK).amount(this.page);
-        itemBuilder.name(Utils.color("&cPage " + this.page));
+        itemBuilder.name(ChatUtil.translate("&cPage " + this.page));
         if (this.current) {
-            itemBuilder.lore("", Utils.color("&aCurrent page"));
+            itemBuilder.lore("", ChatUtil.translate("&aCurrent page"));
         }
         return itemBuilder.build();
     }

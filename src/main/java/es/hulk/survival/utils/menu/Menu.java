@@ -1,8 +1,8 @@
 package es.hulk.survival.utils.menu;
 
+import dev.panda.chat.ChatUtil;
 import es.hulk.survival.Survival;
 import es.hulk.survival.utils.ItemBuilder;
-import es.hulk.survival.utils.Utils;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Bukkit;
@@ -39,7 +39,7 @@ public abstract class Menu {
         Inventory inventory = null;
         int size = this.getSize() == -1 ? this.size(this.buttons) : this.getSize();
         boolean update = false;
-        String title = Utils.color(this.getTitle(player));
+        String title = ChatUtil.translate(this.getTitle(player));
 
         if (title.length() > 32) {
             title = title.substring(0, 32);

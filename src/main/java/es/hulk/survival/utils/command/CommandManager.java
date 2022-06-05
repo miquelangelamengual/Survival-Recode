@@ -1,6 +1,7 @@
 package es.hulk.survival.utils.command;
 
 
+import dev.panda.chat.ChatUtil;
 import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandExecutor;
@@ -73,11 +74,11 @@ public class CommandManager implements CommandExecutor {
                 Command command = method.getAnnotation(Command.class);
 
                 if (!command.permission().equals("") && (!sender.hasPermission(command.permission()))) {
-                    sender.sendMessage(Utils.color("&cNo permission.")); // TODO change
+                    sender.sendMessage(ChatUtil.translate("&cNo permission.")); // TODO change
                     return true;
                 }
                 if (command.inGameOnly() && !(sender instanceof Player)) {
-                    sender.sendMessage(Utils.color("&cThis command in only executable in game."));
+                    sender.sendMessage(ChatUtil.translate("&cThis command in only executable in game."));
                     return true;
                 }
 
