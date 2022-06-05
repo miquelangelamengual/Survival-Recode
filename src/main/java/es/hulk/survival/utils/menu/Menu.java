@@ -90,7 +90,7 @@ public abstract class Menu {
 
         this.setClosedByMenu(false);
         if (autoUpdate && task == null) {
-            task = Survival.get().getServer().getScheduler().runTaskTimer(Survival.get(), () -> this.openMenu(player), 0, 20L);
+            task = Survival.getInstance().getServer().getScheduler().runTaskTimer(Survival.getInstance(), () -> this.openMenu(player), 0, 20L);
         }
     }
 
