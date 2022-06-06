@@ -1,6 +1,8 @@
 package es.hulk.survival.utils;
 
+import es.hulk.survival.utils.location.BedLocation;
 import lombok.Getter;
+import org.bukkit.Location;
 import org.bukkit.Statistic;
 import org.bukkit.entity.Player;
 
@@ -38,5 +40,18 @@ public class PlayerUtils {
         long seconds = playTime / 20 - (hour * 60 * 60) - (minute * 60);
 
         return hour + ":" + minute + ":" + seconds;
+    }
+
+    public String getWorld() {
+        switch (player.getWorld().getName()) {
+            case "world":
+                return "Overworld";
+            case "world_nether":
+                return "Nether";
+            case "world_the_end":
+                return "The End";
+            default:
+                return "Unknown";
+        }
     }
 }

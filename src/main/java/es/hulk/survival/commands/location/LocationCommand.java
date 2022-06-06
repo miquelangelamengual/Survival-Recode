@@ -57,7 +57,7 @@ public class LocationCommand extends BaseCommand {
     }
 
     public void getUsage(CommandSender commandSender) {
-        commandSender.sendMessage(ChatUtil.NORMAL_LINE);
+        commandSender.sendMessage(ChatUtil.translate(ChatUtil.NORMAL_LINE));
         commandSender.sendMessage(ChatUtil.translate("&e/setlocation <name> &7- &fSets your current location"));
         commandSender.sendMessage(ChatUtil.translate("&e/deletelocation <name> &7- &fRemoves the location you want"));
         commandSender.sendMessage(ChatUtil.translate("&e/location help &7- &fshows this help"));
@@ -66,6 +66,6 @@ public class LocationCommand extends BaseCommand {
         if (commandSender.hasPermission("survival.command.warp.admin")) {
             commandSender.sendMessage(ChatUtil.translate("&e/location clear &7- &fClear all the saved locations"));
         }
-        commandSender.sendMessage(ChatUtil.NORMAL_LINE);
+        commandSender.sendMessage(ChatUtil.translate(ChatUtil.NORMAL_LINE));
     }
 }

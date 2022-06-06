@@ -5,6 +5,7 @@ import dev.panda.file.FileConfig;
 import dev.panda.rank.RankManager;
 import es.hulk.survival.commands.SurvivalCommand;
 import es.hulk.survival.commands.essentials.PlayTimeCommand;
+import es.hulk.survival.commands.location.LocationCommand;
 import es.hulk.survival.hooks.ScoreboardHook;
 import es.hulk.survival.hooks.TablistHook;
 import es.hulk.survival.listeners.ChatListener;
@@ -17,10 +18,7 @@ import es.hulk.survival.utils.command.BaseCommand;
 import es.hulk.survival.utils.command.CommandManager;
 import lombok.Getter;
 import lombok.Setter;
-import org.bukkit.Bukkit;
-import org.bukkit.Difficulty;
-import org.bukkit.GameRule;
-import org.bukkit.World;
+import org.bukkit.*;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -83,7 +81,8 @@ public final class Survival extends JavaPlugin {
     private void loadCommands() {
         List<BaseCommand> commandList = Arrays.asList(
                 new SurvivalCommand(),
-                new PlayTimeCommand()
+                new PlayTimeCommand(),
+                new LocationCommand()
         );
 
         for (BaseCommand command : commandList) {
