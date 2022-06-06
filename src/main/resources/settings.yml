@@ -1,0 +1,6 @@
+TOGGLES:
+  RECIPES: true
+  SCOREBOARD: true
+  TABLIST: true
+
+SPAWN: {}
