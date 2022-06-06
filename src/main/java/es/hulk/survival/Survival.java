@@ -12,6 +12,7 @@ import es.hulk.survival.listeners.JoinListener;
 import es.hulk.survival.listeners.MotdListener;
 import es.hulk.survival.listeners.QuitListener;
 import es.hulk.survival.location.WarpManager;
+import es.hulk.survival.recipes.RecipeManager;
 import es.hulk.survival.utils.command.BaseCommand;
 import es.hulk.survival.utils.command.CommandManager;
 import lombok.Getter;
@@ -34,6 +35,7 @@ public final class Survival extends JavaPlugin {
     private CommandManager commandManager;
     private RankManager rankManager;
     private WarpManager warpManager;
+    private RecipeManager recipeManager;
     private FileConfig mainConfig;
     private FileConfig locationsConfig;
 
@@ -47,6 +49,7 @@ public final class Survival extends JavaPlugin {
 
         rankManager.loadRank();
         warpManager.loadWarps();
+        if (mainConfig.getBoolean("TOGGLES.RECIPES")) recipeManager.loadRecipes();
 
         ChatUtil.log("");
         ChatUtil.log("&aSurvival &e- &f" + getDescription().getVersion());
@@ -71,6 +74,7 @@ public final class Survival extends JavaPlugin {
     }
 
     private void loadManagers() {
+        this.recipeManager = new RecipeManager();
         this.warpManager = new WarpManager(this);
         this.commandManager = new CommandManager(this);
         this.rankManager = new RankManager(this);

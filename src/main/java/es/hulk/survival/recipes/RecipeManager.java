@@ -18,7 +18,7 @@ import es.hulk.survival.recipes.smithingtable.*;
 
 public class RecipeManager {
 
-    public void load() {
+    public void loadRecipes() {
         NameTag.load();
         EnchantedGoldenApple.load();
 
