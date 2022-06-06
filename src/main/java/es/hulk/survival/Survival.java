@@ -4,6 +4,7 @@ import dev.panda.chat.ChatUtil;
 import dev.panda.file.FileConfig;
 import dev.panda.rank.RankManager;
 import es.hulk.survival.commands.SurvivalCommand;
+import es.hulk.survival.commands.essentials.PlayTimeCommand;
 import es.hulk.survival.hooks.ScoreboardHook;
 import es.hulk.survival.hooks.TablistHook;
 import es.hulk.survival.utils.command.BaseCommand;
@@ -40,9 +41,9 @@ public final class Survival extends JavaPlugin {
         ChatUtil.log("&aVersion&7: &f1.18.1");
         ChatUtil.log("&aRank System&7: &f" + rankManager.getRankSystem());
         ChatUtil.log("");
+        loadCommands();
         ScoreboardHook.init(this);
         TablistHook.init(this);
-        loadCommands();
         ChatUtil.log("");
     }
 
@@ -57,11 +58,14 @@ public final class Survival extends JavaPlugin {
         this.rankManager = new RankManager(this);
     }
 
-    private void loadCommands() {
-        List<BaseCommand> commandList = Arrays.asList(new SurvivalCommand());
+    public void loadCommands() {
+        List<BaseCommand> commandList = Arrays.asList(
+                new SurvivalCommand(),
+                new PlayTimeCommand()
+        );
 
         for (BaseCommand command : commandList) {
-            CommandManager.getInstance().registerCommands(command, null);
+            commandManager.registerCommands(command, null);
         }
 
         ChatUtil.log("&aLoaded &f" + commandList.size() + " &acommands!");
