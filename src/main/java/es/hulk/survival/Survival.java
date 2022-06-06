@@ -29,7 +29,7 @@ import java.util.List;
 @Getter @Setter
 public final class Survival extends JavaPlugin {
 
-    @Getter private static Survival instance = getPlugin(Survival.class);
+    @Getter private static Survival instance;
 
     private CommandManager commandManager;
     private RankManager rankManager;
@@ -39,6 +39,8 @@ public final class Survival extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        instance = this;
+
         this.mainConfig = new FileConfig(this, "settings.yml");
         this.locationsConfig = new FileConfig(this, "locations.yml");
         this.loadManagers();
