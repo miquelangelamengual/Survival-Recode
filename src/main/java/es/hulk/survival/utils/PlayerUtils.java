@@ -13,7 +13,10 @@ public class PlayerUtils {
     private int deaths;
     private int mobKills;
 
+    private double health;
     private long playTime;
+
+    private String biome;
 
     public PlayerUtils(Player player) {
         this.player = player;
@@ -21,7 +24,11 @@ public class PlayerUtils {
         this.mobKills = player.getStatistic(Statistic.MOB_KILLS);
         this.deaths = player.getStatistic(Statistic.DEATHS);
         this.kills = player.getStatistic(Statistic.PLAYER_KILLS);
+
+        this.health = player.getHealth() / 2;
         this.playTime = player.getStatistic(Statistic.PLAY_ONE_MINUTE);
+
+        this.biome = String.valueOf(player.getWorld().getBiome(player.getLocation()));
     }
 
     public String getPlayTime() {
