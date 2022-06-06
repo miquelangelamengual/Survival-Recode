@@ -7,10 +7,19 @@ import es.hulk.survival.commands.SurvivalCommand;
 import es.hulk.survival.commands.essentials.PlayTimeCommand;
 import es.hulk.survival.hooks.ScoreboardHook;
 import es.hulk.survival.hooks.TablistHook;
+import es.hulk.survival.listeners.ChatListener;
+import es.hulk.survival.listeners.JoinListener;
+import es.hulk.survival.listeners.MotdListener;
+import es.hulk.survival.listeners.QuitListener;
 import es.hulk.survival.utils.command.BaseCommand;
 import es.hulk.survival.utils.command.CommandManager;
 import lombok.Getter;
 import lombok.Setter;
+import org.bukkit.Bukkit;
+import org.bukkit.Difficulty;
+import org.bukkit.GameRule;
+import org.bukkit.World;
+import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Arrays;
@@ -41,7 +50,9 @@ public final class Survival extends JavaPlugin {
         ChatUtil.log("&aVersion&7: &f1.18.1");
         ChatUtil.log("&aRank System&7: &f" + rankManager.getRankSystem());
         ChatUtil.log("");
-        loadCommands();
+        this.loadCommands();
+        this.loadListeners();
+        this.prepareWorlds();
         ScoreboardHook.init(this);
         TablistHook.init(this);
         ChatUtil.log("");
@@ -58,7 +69,7 @@ public final class Survival extends JavaPlugin {
         this.rankManager = new RankManager(this);
     }
 
-    public void loadCommands() {
+    private void loadCommands() {
         List<BaseCommand> commandList = Arrays.asList(
                 new SurvivalCommand(),
                 new PlayTimeCommand()
@@ -69,5 +80,31 @@ public final class Survival extends JavaPlugin {
         }
 
         ChatUtil.log("&aLoaded &f" + commandList.size() + " &acommands!");
+    }
+
+    private void loadListeners() {
+        List<Listener> listenerList = Arrays.asList(
+                new JoinListener(),
+                new ChatListener(),
+                new QuitListener(),
+                new MotdListener()
+        );
+
+        for (Listener listener : listenerList) {
+            Bukkit.getPluginManager().registerEvents(listener, this);
+        }
+
+        ChatUtil.log("&aLoaded &f" + listenerList.size() + " &alisteners!");
+    }
+
+    private void prepareWorlds() {
+        for (World world : Bukkit.getWorlds()) {
+            world.setDifficulty(Difficulty.HARD);
+            world.setGameRule(GameRule.KEEP_INVENTORY, true);
+            world.setGameRule(GameRule.PLAYERS_SLEEPING_PERCENTAGE, 0);
+            world.setGameRule(GameRule.RANDOM_TICK_SPEED, 50);
+        }
+
+        ChatUtil.log("&aPrepared &f" + Bukkit.getWorlds().size() + " &aworlds!");
     }
 }
