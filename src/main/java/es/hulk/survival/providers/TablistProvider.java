@@ -66,7 +66,7 @@ public class TablistProvider implements TablistAdapter {
     }
 
     @Override
-    public List<String> getFooter(Player player) {
+    public List<String> getHeader(Player player) {
         return Arrays.asList(
                 "",
                 "&eBienvendo &a" + player.getName() + " &eal Survival",
@@ -74,7 +74,7 @@ public class TablistProvider implements TablistAdapter {
     }
 
     @Override
-    public List<String> getHeader(Player player) {
+    public List<String> getFooter(Player player) {
         return Arrays.asList(
                 "",
                 "&eDisfruta de tu estancia en el servidor",
