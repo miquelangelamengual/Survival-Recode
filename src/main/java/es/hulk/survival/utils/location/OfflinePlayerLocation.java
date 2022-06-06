@@ -1,10 +1,13 @@
 package es.hulk.survival.utils.location;
 
+import lombok.Getter;
+import org.bukkit.Location;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 
 import java.util.Objects;
 
+@Getter
 public class OfflinePlayerLocation {
 
     private OfflinePlayer offlinePlayer;
@@ -13,12 +16,16 @@ public class OfflinePlayerLocation {
     private int blockY;
     private int blockZ;
 
+    private Location location;
+
     public OfflinePlayerLocation(OfflinePlayer offlinePlayer) {
         this.offlinePlayer = offlinePlayer;
 
         this.blockX = (int) offlinePlayer.getPlayer().getLocation().getX();
         this.blockY = (int) offlinePlayer.getPlayer().getLocation().getY();
         this.blockZ = (int) offlinePlayer.getPlayer().getLocation().getZ();
+
+        this.location = new Location(offlinePlayer.getPlayer().getWorld(), blockX, blockY, blockZ);
     }
 
     public String getWorld() {

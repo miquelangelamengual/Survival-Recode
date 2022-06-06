@@ -6,6 +6,10 @@ import dev.panda.rank.RankManager;
 import es.hulk.survival.commands.SurvivalCommand;
 import es.hulk.survival.commands.essentials.PlayTimeCommand;
 import es.hulk.survival.commands.location.LocationCommand;
+import es.hulk.survival.commands.teleport.TeleportAllCommand;
+import es.hulk.survival.commands.teleport.TeleportCommand;
+import es.hulk.survival.commands.teleport.TeleportCoordsCommand;
+import es.hulk.survival.commands.teleport.TeleportHereCommand;
 import es.hulk.survival.hooks.ScoreboardHook;
 import es.hulk.survival.hooks.TablistHook;
 import es.hulk.survival.listeners.ChatListener;
@@ -82,7 +86,11 @@ public final class Survival extends JavaPlugin {
         List<BaseCommand> commandList = Arrays.asList(
                 new SurvivalCommand(),
                 new PlayTimeCommand(),
-                new LocationCommand()
+                new LocationCommand(),
+                new TeleportCommand(),
+                new TeleportAllCommand(),
+                new TeleportHereCommand(),
+                new TeleportCoordsCommand()
         );
 
         for (BaseCommand command : commandList) {
