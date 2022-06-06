@@ -16,7 +16,11 @@ public class PlayerUtils {
     }
 
     public int getKills() {
-        return player.getStatistic(Statistic.DEATHS);
+        return player.getStatistic(Statistic.PLAYER_KILLS);
+    }
+
+    public int getMobKills() {
+        return player.getStatistic(Statistic.MOB_KILLS);
     }
 
     public String getPlayTime() {
