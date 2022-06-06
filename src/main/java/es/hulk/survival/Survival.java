@@ -11,6 +11,7 @@ import es.hulk.survival.listeners.ChatListener;
 import es.hulk.survival.listeners.JoinListener;
 import es.hulk.survival.listeners.MotdListener;
 import es.hulk.survival.listeners.QuitListener;
+import es.hulk.survival.location.WarpManager;
 import es.hulk.survival.utils.command.BaseCommand;
 import es.hulk.survival.utils.command.CommandManager;
 import lombok.Getter;
@@ -32,16 +33,20 @@ public final class Survival extends JavaPlugin {
 
     private CommandManager commandManager;
     private RankManager rankManager;
+    private WarpManager warpManager;
     private FileConfig mainConfig;
+    private FileConfig locationsConfig;
 
     @Override
     public void onEnable() {
         instance = this;
 
         this.mainConfig = new FileConfig(this, "settings.yml");
+        this.locationsConfig = new FileConfig(this, "locations.yml");
         this.loadManagers();
 
         rankManager.loadRank();
+        warpManager.loadWarps();
 
         ChatUtil.log("");
         ChatUtil.log("&aSurvival &e- &f" + getDescription().getVersion());
@@ -62,9 +67,11 @@ public final class Survival extends JavaPlugin {
     public void onDisable() {
         ScoreboardHook.getScoreboard().getBoards().clear();
         TablistHook.getTablist().disable();
+        warpManager.saveWarps();
     }
 
     private void loadManagers() {
+        this.warpManager = new WarpManager(this);
         this.commandManager = new CommandManager(this);
         this.rankManager = new RankManager(this);
     }
