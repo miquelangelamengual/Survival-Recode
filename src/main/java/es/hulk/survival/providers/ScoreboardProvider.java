@@ -33,7 +33,8 @@ public class ScoreboardProvider implements ScoreboardAdapter {
         }
         lines.add("");
         lines.add("&6Jugador");
-        lines.add(" &7* &aKills&7: &f" + playerUtils.getKills());
+        lines.add(" &7* &aPlayer Kills&7: &f" + playerUtils.getKills());
+        lines.add(" &7* &aMob Kills&7: &f" + playerUtils.getMobKills());
         lines.add(" &7* &aDeaths&7: &f" + playerUtils.getDeaths());
         lines.add("");
         lines.add("&6Servidor");

@@ -29,7 +29,7 @@ public class ChatListener implements Listener {
         BedLocation bedLocation = new BedLocation(event.getPlayer());
 
         if (event.getMessage().contains("tpeame a mi casa") || event.getMessage().contains("tpeame a mi cama")) {
-            if (playerUtils.getPlayTime() >= TimeUnit.MILLISECONDS.toHours(5)) {
+            if (playerUtils.getPlayTime() >= 360000) {
                 bedLocation.sendPlayerToBed();
                 event.setCancelled(true);
             } else {

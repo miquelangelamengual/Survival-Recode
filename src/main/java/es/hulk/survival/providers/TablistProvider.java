@@ -27,7 +27,7 @@ public class TablistProvider implements TablistAdapter {
         tabs.add(new TablistLayout(TablistColumn.LEFT, 3, "&eMobs Matados&7: &a" + playerUtils.getMobKills()));
         tabs.add(new TablistLayout(TablistColumn.LEFT, 4, "&eJugadores&7: &a" + playerUtils.getKills()));
         tabs.add(new TablistLayout(TablistColumn.LEFT, 5, "&eMuertes&7: &a" + playerUtils.getDeaths()));
-        tabs.add(new TablistLayout(TablistColumn.LEFT, 6, "&eTiempo&7: &a" + playerUtils.getPlayTime()));
+        tabs.add(new TablistLayout(TablistColumn.LEFT, 6, "&eTiempo&7: &a" + playerUtils.getNicePlayTime()));
         tabs.add(new TablistLayout(TablistColumn.LEFT, 7, "&eVida&7: &a" + playerUtils.getHealth()));
 
         tabs.add(new TablistLayout(TablistColumn.LEFT, 10, "&6Bosses Eliminados"));
@@ -49,7 +49,7 @@ public class TablistProvider implements TablistAdapter {
             tabs.add(new TablistLayout(TablistColumn.MIDDLE, 7, "&eZ&7: &a" + bedLocation.getBlockZ()));
         }
 
-        tabs.add(new TablistLayout(TablistColumn.LEFT, 14, "&6Coords del Spawn"));
+        tabs.add(new TablistLayout(TablistColumn.MIDDLE, 10, "&6Coords del Spawn"));
         tabs.add(new TablistLayout(TablistColumn.MIDDLE, 11, "&eMundo&7: &aOverworld", Skin.PLANET_SKIN));
         tabs.add(new TablistLayout(TablistColumn.MIDDLE, 12, "&eX&7: &a" + player.getWorld().getSpawnLocation().getBlockX()));
         tabs.add(new TablistLayout(TablistColumn.MIDDLE, 13, "&eY&7: &a" + player.getWorld().getSpawnLocation().getBlockY()));
