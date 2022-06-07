@@ -33,7 +33,7 @@ public class PlayerUtils {
         this.biome = String.valueOf(player.getWorld().getBiome(player.getLocation()));
     }
 
-    public String getPlayTime() {
+    public String getNicePlayTime() {
 
         long hour = ((playTime / 20) / 60) / 60;
         long minute = playTime / 1200 - hour * 60;

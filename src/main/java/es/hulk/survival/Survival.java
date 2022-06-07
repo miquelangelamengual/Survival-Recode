@@ -12,10 +12,7 @@ import es.hulk.survival.commands.teleport.TeleportCoordsCommand;
 import es.hulk.survival.commands.teleport.TeleportHereCommand;
 import es.hulk.survival.hooks.ScoreboardHook;
 import es.hulk.survival.hooks.TablistHook;
-import es.hulk.survival.listeners.ChatListener;
-import es.hulk.survival.listeners.JoinListener;
-import es.hulk.survival.listeners.MotdListener;
-import es.hulk.survival.listeners.QuitListener;
+import es.hulk.survival.listeners.*;
 import es.hulk.survival.location.WarpManager;
 import es.hulk.survival.recipes.RecipeManager;
 import es.hulk.survival.utils.command.BaseCommand;
@@ -104,7 +101,9 @@ public final class Survival extends JavaPlugin {
         List<Listener> listenerList = Arrays.asList(
                 new JoinListener(),
                 new ChatListener(),
-                new QuitListener(),
+                new DeathListener(),
+                new EntityListener(),
+                new CommandsListener(),
                 new MotdListener()
         );
 

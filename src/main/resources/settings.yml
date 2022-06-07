@@ -3,4 +3,9 @@ TOGGLES:
   SCOREBOARD: true
   TABLIST: true
 
-SPAWN: {}
+ENTITIES:
+  POPPY-DROP: false
+  GUNPOWDER-BOOST: true
+  GHAST-THEAR-BOOST: true
+  BEE-BOOST: true
+  CAT-BOOST: true
