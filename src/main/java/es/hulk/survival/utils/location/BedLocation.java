@@ -4,7 +4,6 @@ import lombok.Getter;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
-import org.bukkit.event.player.PlayerQuitEvent;
 
 @Getter
 public class BedLocation {
@@ -43,6 +42,10 @@ public class BedLocation {
             default:
                 return "No World Found";
         }
+    }
+
+    public void sendPlayerToBed() {
+        player.teleport(location);
     }
 
 }
