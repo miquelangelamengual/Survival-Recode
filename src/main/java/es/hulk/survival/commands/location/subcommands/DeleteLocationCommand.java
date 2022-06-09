@@ -15,7 +15,6 @@ public class DeleteLocationCommand extends BaseCommand {
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
         String[] args = command.getArgs();
-
         WarpManager warpManager = Survival.getInstance().getWarpManager();
 
         if (args.length == 0) {

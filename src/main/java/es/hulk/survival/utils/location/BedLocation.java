@@ -31,7 +31,7 @@ public class BedLocation {
         this.location = new Location(world, blockX, blockY, blockZ);
     }
 
-    public String getWorld() {
+    public String getNiceWorld() {
         switch (player.getBedSpawnLocation().getWorld().getName()) {
             case "world":
                 return "Overworld";

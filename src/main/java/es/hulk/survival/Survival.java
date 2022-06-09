@@ -4,8 +4,15 @@ import dev.panda.chat.ChatUtil;
 import dev.panda.file.FileConfig;
 import dev.panda.rank.RankManager;
 import es.hulk.survival.commands.SurvivalCommand;
-import es.hulk.survival.commands.essentials.PlayTimeCommand;
+import es.hulk.survival.commands.admin.*;
+import es.hulk.survival.commands.essential.*;
+import es.hulk.survival.commands.gamemode.GamemodeCommand;
+import es.hulk.survival.commands.gamemode.subcommands.CameraCommand;
 import es.hulk.survival.commands.location.LocationCommand;
+import es.hulk.survival.commands.spawn.SpawnChunksCoordsCommand;
+import es.hulk.survival.commands.spawn.SpawnCommand;
+import es.hulk.survival.commands.stats.SetStatsCommand;
+import es.hulk.survival.commands.stats.StatsCommand;
 import es.hulk.survival.commands.teleport.TeleportAllCommand;
 import es.hulk.survival.commands.teleport.TeleportCommand;
 import es.hulk.survival.commands.teleport.TeleportCoordsCommand;
@@ -87,7 +94,35 @@ public final class Survival extends JavaPlugin {
                 new TeleportCommand(),
                 new TeleportAllCommand(),
                 new TeleportHereCommand(),
-                new TeleportCoordsCommand()
+                new TeleportCoordsCommand(),
+                new GamemodeCommand(),
+                new CameraCommand(),
+                new SurvivalCommand(),
+                new SeedCommand(),
+                new PingCommand(),
+                new KillCommand(),
+                new SpawnCommand(),
+                new SpawnChunksCoordsCommand(),
+                new StatsCommand(),
+                new SetStatsCommand(),
+                new HealthCommand(),
+                new FlyCommand(),
+                new EnderChestCommand(),
+                new CoordsCommand(),
+                new CamaCoordCommand(),
+                new BedTPCommand(),
+                new WorldInfoCommand(),
+                new TPWorldCommand(),
+                new SetNameCommand(),
+                new MoreCommand(),
+                new KillAllCommand(),
+                new ItemCommand(),
+                new InvseeCommand(),
+                new GiveExperienceCommand(),
+                new GetPlayerInformationCommand(),
+                new DropItemsCommand(),
+                new ClearServerCommand(),
+                new BanCommand()
         );
 
         for (BaseCommand command : commandList) {

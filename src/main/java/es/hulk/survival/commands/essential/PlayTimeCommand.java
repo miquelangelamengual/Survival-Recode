@@ -1,4 +1,4 @@
-package es.hulk.survival.commands.essentials;
+package es.hulk.survival.commands.essential;
 
 import dev.panda.chat.ChatUtil;
 import es.hulk.survival.utils.PlayerUtils;

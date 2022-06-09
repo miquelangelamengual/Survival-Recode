@@ -43,7 +43,7 @@ public class TablistProvider implements TablistAdapter {
 
         if (player.getBedSpawnLocation() != null) {
             tabs.add(new TablistLayout(TablistColumn.MIDDLE, 3, "&6Coords de tu Cama"));
-            tabs.add(new TablistLayout(TablistColumn.MIDDLE, 4, "&eMundo&7: &a" + bedLocation.getWorld(), Skin.PLANET_SKIN));
+            tabs.add(new TablistLayout(TablistColumn.MIDDLE, 4, "&eMundo&7: &a" + bedLocation.getNiceWorld(), Skin.PLANET_SKIN));
             tabs.add(new TablistLayout(TablistColumn.MIDDLE, 5, "&eX&7: &a" + bedLocation.getBlockX()));
             tabs.add(new TablistLayout(TablistColumn.MIDDLE, 6, "&eY&7: &a" + bedLocation.getBlockY()));
             tabs.add(new TablistLayout(TablistColumn.MIDDLE, 7, "&eZ&7: &a" + bedLocation.getBlockZ()));
